@@ -10,8 +10,9 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  #boot.loader.systemd-boot.enable = true;
+  nixpkgs.config.allowUnfree = true;
+
+
   boot.supportedFilesystems = [ "ntfs" ];
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -19,14 +20,6 @@
   boot.loader.grub.devices = [ "nodev" ];
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;  
-
-  #boot.extraModulePackages = [ pkgs.linuxPackages.firmware ];
-  boot.kernelModules = [ "iwlwifi" ];
-
-  # networking.hostName = "nixos"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -44,13 +37,13 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true; 
+  services.xserver = {
+    enable = true;
+    xkb.layout = "us,ru";
+    xkb.options = "grp:alt_shift_toggle";
+  };
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -76,14 +69,16 @@
     ];
   };
 
-  programs.firefox.enable = true;
+  programs.firefox.enable = true;  
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     bluez
      wget
      git
+     vscode
     ];
 
   # Some programs need SUID wrappers, can be configured further or are

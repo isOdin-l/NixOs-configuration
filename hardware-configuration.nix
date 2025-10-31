@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "iwlwifi" "btusb" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/boot" =
@@ -24,12 +24,6 @@
       fsType = "ext4";
     };
 
-  #fileSystems."/boot" =
-  #  { device = "/boot";
-  #    fsType = "none";
-  #    options = [ "bind" ];
-  #  };
-
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -42,5 +36,13 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  #hardware.opengl.enable = true;
+  #networking.hostName = "localhost";
+  networking.networkmanager.enable = true; # Enable network via NetworkManager
+
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+  # Enable Bluetooth daemon
+  services.blueman.enable = true;
 }
