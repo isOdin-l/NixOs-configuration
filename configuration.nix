@@ -10,8 +10,8 @@
       ./hardware-configuration.nix
     ];
 
-  nixpkgs.config.allowUnfree = true;
-
+  nixpkgs.config.allowUnfree = true;  
+  virtualisation.docker.enable = true;
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -62,7 +62,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.isodin = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" "plugdev" "input" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "plugdev" "input" "docker" ]; # Enable ‘sudo’ for the user.
     password = "26971";
     packages = with pkgs; [
       tree
@@ -79,6 +79,7 @@
      wget
      git
      vscode
+     go_1_25
     ];
 
   # Some programs need SUID wrappers, can be configured further or are
