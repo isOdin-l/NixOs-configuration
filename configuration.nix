@@ -80,6 +80,8 @@
      git
      vscode
      go_1_25
+     python313
+     telegram-desktop
     ];
 
   # Some programs need SUID wrappers, can be configured further or are
