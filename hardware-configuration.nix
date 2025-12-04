@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" "iwlwifi" "btusb" ];
+  boot.kernelModules = [ "kvm-intel" "iwlwifi" "btqca" "btusb" "hci_qca" "hci_uart" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/boot" =
@@ -43,6 +43,13 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  hardware.bluetooth.settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+      Experimental = true;
+    };
+  };
+  
   # Enable Bluetooth daemon
   services.blueman.enable = true;
 }
