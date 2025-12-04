@@ -82,6 +82,7 @@
      go_1_25
      python313
      telegram-desktop
+     obsidian
     ];
 
   # Some programs need SUID wrappers, can be configured further or are
