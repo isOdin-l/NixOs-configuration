@@ -21,6 +21,10 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;  
 
+  environment.variables = {
+     BROWSER = "edge";
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
 
@@ -41,12 +45,7 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
+  
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -54,7 +53,7 @@
     alsa.support32Bit = true;
     jack.enable = true;
   };
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # Enable touchpad support
   services.libinput.enable = true;
@@ -69,8 +68,6 @@
     ];
   };
 
-  programs.firefox.enable = true;  
-
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -83,6 +80,7 @@
      python313
      telegram-desktop
      obsidian
+     microsoft-edge
     ];
 
   # Copy the NixOS configuration file and link it from the resulting system
