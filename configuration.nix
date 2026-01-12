@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./hyprland.nix
     ];
 
   nixpkgs.config.allowUnfree = true;  
@@ -21,11 +22,12 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;  
 
+  # Setting default browser
   environment.variables = {
      BROWSER = "edge";
   };
 
-  # Set your time zone.
+  # Time zone
   time.timeZone = "Europe/Moscow";
 
   # Select internationalisation properties.
@@ -36,16 +38,21 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   };
 
-  # Enable the X11 windowing system.
+  # KEYBOARD LANGUAGES
   services.xserver = {
-    enable = true;
     xkb.layout = "us,ru";
     xkb.options = "grp:alt_shift_toggle";
   };
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
 
-  
+  # SDDM
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+
+
+  # PIPEWIRE
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -53,12 +60,11 @@
     alsa.support32Bit = true;
     jack.enable = true;
   };
-  services.pulseaudio.enable = false;
 
-  # Enable touchpad support
+  # TOUCHPAD
   services.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # USER ACCOUNT.
   users.users.isodin = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" "plugdev" "input" "docker" ];
@@ -68,9 +74,8 @@
     ];
   };
 
-  # You can use https://search.nixos.org/ to find more packages (and options).
+  # Packages
   environment.systemPackages = with pkgs; [
-     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
      blueman
      bluez
@@ -81,7 +86,25 @@
      telegram-desktop
      obsidian
      microsoft-edge
-    ];
+     (waybar.overrideAttrs (oldAttrs: {mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
+     dunst
+     libnotify  
+     swww
+     kitty
+     rofi-wayland
+     networkmanagerapplet
+     catppuccin-cursors.mochaDark
+     gnome-keyring
+     libsecret
+     seahorse
+     nemo
+     hyprshot
+  ];
+
+  # Fonts
+  fonts.packages = with pkgs; [
+  	nerd-fonts.jetbrains-mono
+  ];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
