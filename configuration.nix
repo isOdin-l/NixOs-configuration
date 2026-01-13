@@ -89,7 +89,6 @@
      (waybar.overrideAttrs (oldAttrs: {mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
      dunst
      libnotify  
-     swww
      kitty
      rofi-wayland
      networkmanagerapplet
@@ -99,6 +98,7 @@
      seahorse
      nemo
      hyprshot
+     hyprpaper
   ];
 
   # Fonts
