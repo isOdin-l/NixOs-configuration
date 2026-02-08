@@ -1,12 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ./hyprland.nix
     ];
@@ -86,10 +82,10 @@
      telegram-desktop
      obsidian
      microsoft-edge
-     (waybar.overrideAttrs (oldAttrs: {mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
-     dunst
+     (waybar.overrideAttrs (oldAttrs: {mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];})) # Line on top
+     dunst # Notifier
      libnotify  
-     kitty
+     kitty # Terminal
      rofi-wayland
      networkmanagerapplet
      catppuccin-cursors.mochaDark
@@ -97,14 +93,24 @@
      libsecret
      seahorse
      nemo
-     hyprshot
-     hyprpaper
-  ];
+     hyprshot # Print Screen
+     hyprpaper # Wallpapers
+     libreoffice
+     wlogout # Pretty logout manager
+     qalculate-gtk # Calculator 
+     gcc # C/C++ languages
+     (pkgs.callPackage /home/isodin/packages/yandex-music {}) # Yandex-music (custom package)
+     vlc # Media player
+];
 
   # Fonts
   fonts.packages = with pkgs; [
   	nerd-fonts.jetbrains-mono
-  ];
+	liberation_ttf
+  	noto-fonts
+  	noto-fonts-cjk-sans
+  	noto-fonts-emoji  
+];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
