@@ -47,7 +47,7 @@
   };
 
 
-  # PIPEWIRE
+  # PIPEWIRE - sound
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -88,19 +88,22 @@
      kitty # Terminal
      rofi-wayland
      networkmanagerapplet
-     catppuccin-cursors.mochaDark
-     gnome-keyring
+     catppuccin-cursors.mochaDark # Cursor
+     gnome-keyring # tool for saving passwords in browser
      libsecret
      seahorse
-     nemo
+     nemo # File Manager
      hyprshot # Print Screen
      hyprpaper # Wallpapers
-     libreoffice
+     libreoffice # Work with office documents
      wlogout # Pretty logout manager
      qalculate-gtk # Calculator 
      gcc # C/C++ languages
      (pkgs.callPackage /home/isodin/packages/yandex-music {}) # Yandex-music (custom package)
      vlc # Media player
+     trash-cli
+     #opencode # AI-agent tool
+     git-lfs
 ];
 
   # Fonts
