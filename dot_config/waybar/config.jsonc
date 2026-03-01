@@ -1,0 +1,88 @@
+{
+  "position": "top",
+  "layer": "top",
+  "height":32,
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": ["clock"],
+
+  "modules-right": [
+    "tray",
+    "custom/divider",
+    "hyprland/language",
+    "custom/divider",
+    "pulseaudio",
+    "backlight",
+    "custom/divider",
+    "cpu",
+    "memory",
+    "custom/divider",
+    "battery"
+  ],
+
+  "custom/divider": {
+    "format": "|",
+    "tooltip": false
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "on-click": "tilix -e btop",
+    "interval": 1
+  },
+  "memory": {
+    "format": "  {}%",
+    "on-click": "tilix -e btop",
+    "interval": 1
+  },
+ "tray": {
+    "icon-size": 15,
+    "spacing": 10
+  },
+ "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+  
+  "hyprland/language": {
+    "format": "{short}",
+    "tooltip": true
+  },
+
+  "pulseaudio": {
+    "on-click": "pamixer -t",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁",
+    "format-bluetooth": "{icon}  <b>{volume}%</b>",
+    "format-bluetooth-muted": "󰝟 ",
+    "format-icons": {
+      "headset": "",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    }
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
+  },
+
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󱈑 {capacity}%",
+    "format-plugged": "󱈑 {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "clock": {
+    "format": "{:%A %b %d %H:%M}",
+    "tooltip-format": "{:%d} {calendar}"
+  }
+}

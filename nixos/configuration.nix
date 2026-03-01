@@ -53,7 +53,7 @@
   users.users.isodin = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" "plugdev" "input" "docker" ];
-    password = "26971";
+    hashedPassword = "$6$CmZnTbDq5n2soVZN$.9YqV3Vj9QfQVOPqHmeyog5ZZmYKVO5P/1Z1lslo8tslK2vaN8MeBX7EJyIPVrBNLDd17gzBwc5.WFNi1jRig1";
     packages = with pkgs; [
       tree
     ];
@@ -82,12 +82,7 @@
   services.blueman.enable = true;
 
   # VPN SERVICE
-  services.zerotierone = {
-    enable = true;
-    joinNetworks = [
-      "08752e18b1bcb0e0"
-    ];
-  };
+  services.zerotierone.enable = true;
 
   system.stateVersion = "25.05";
 }
