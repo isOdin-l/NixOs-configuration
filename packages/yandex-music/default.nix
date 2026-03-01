@@ -25,6 +25,9 @@
 , nss
 , pango
 , fetchurl
+,libXScrnSaver
+, libappindicator
+, libnotify
 }:
 
 stdenv.mkDerivation {
