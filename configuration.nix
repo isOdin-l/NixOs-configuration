@@ -23,6 +23,13 @@
      BROWSER = "edge";
   };
 
+  services.zerotierone = {
+  enable = true;
+  joinNetworks = [
+    "08752e18b1bcb0e0"
+  ];
+};
+
   # Time zone
   time.timeZone = "Europe/Moscow";
 
@@ -102,8 +109,9 @@
      (pkgs.callPackage /home/isodin/packages/yandex-music {}) # Yandex-music (custom package)
      vlc # Media player
      trash-cli
-     #opencode # AI-agent tool
+     opencode # AI-agent tool
      git-lfs
+     typst # milestone text-compiler instead of Word and Latex
 ];
 
   # Fonts
