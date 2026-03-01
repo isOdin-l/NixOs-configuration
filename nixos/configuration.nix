@@ -106,7 +106,7 @@
      wlogout # Pretty logout manager
      qalculate-gtk # Calculator 
      gcc # C/C++ languages
-     (pkgs.callPackage /home/isodin/packages/yandex-music {}) # Yandex-music (custom package)
+     (pkgs.callPackage ../packages/yandex-music {}) # Yandex-music (custom package)
      vlc # Media player
      trash-cli
      opencode # AI-agent tool
