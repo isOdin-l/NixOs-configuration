@@ -34,6 +34,7 @@
     vlc # Media player
     trash-cli
     opencode # AI-agent tool
-    typst # milestone text-compiler instead of Word and Latex
+    #typst # milestone text-compiler instead of Word and Latex
+    godot # Game engine
   ];
 }
