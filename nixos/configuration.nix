@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixpkgs-unstable, ... }:
 
 {
   imports =
@@ -13,6 +13,11 @@
   nixpkgs.config.allowUnfree = true;  
   virtualisation.docker.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # BROWSER
+  environment.variables = {
+     BROWSER = "edge";
+  };
 
   # TIME ZONE
   time.timeZone = "Europe/Moscow";
@@ -58,11 +63,6 @@
     packages = with pkgs; [
       tree
     ];
-  };
-
-  # BROWSER
-  environment.variables = {
-     BROWSER = "edge";
   };
 
   # NETWORK

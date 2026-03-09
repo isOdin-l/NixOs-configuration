@@ -1,5 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs-unstable, ... }:
 
+let
+  unstable = import nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 {
   environment.systemPackages = with pkgs; [
     wget
@@ -8,16 +14,16 @@
     git
     git-lfs
     vscode
-    go_1_25
+    unstable.go_1_26
     python313
-    telegram-desktop
+    unstable.telegram-desktop
     obsidian
-    microsoft-edge
+    unstable.microsoft-edge
     (waybar.overrideAttrs (oldAttrs: {mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];})) # Line on top
     dunst # Notifier
     libnotify  
     kitty # Terminal
-    rofi-wayland
+    rofi
     networkmanagerapplet
     catppuccin-cursors.mochaDark # Cursor
     gnome-keyring # tool for saving passwords in browser
@@ -33,8 +39,12 @@
     (pkgs.callPackage ../packages/yandex-music {}) # Yandex-music (custom package)
     vlc # Media player
     trash-cli
-    opencode # AI-agent tool
+    unstable.opencode # AI-agent tool
     #typst # milestone text-compiler instead of Word and Latex
     godot # Game engine
+    zip
+    unzip
+    ncdu
+    postman
   ];
 }
