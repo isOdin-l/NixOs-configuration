@@ -1,0 +1,162 @@
+{
+    "stable":[
+        {
+            "name": "wget",
+            "description": ""
+        },
+        {
+            "name": "blueman",
+            "description": "Bluetooth manager"
+        },
+        {
+            "name": "bluez",
+            "description": ""
+        },
+        {
+            "name": "git",
+            "description": "Git application"
+        },
+        {
+            "name": "git-lfs",
+            "description": "Work with large files in git"
+        },
+        {
+            "name": "vscode",
+            "description": "IDE"
+        },
+        {
+            "name": "python313",
+            "description": "Python 3.13"
+        },
+        {
+            "name": "obsidian",
+            "description": "Markdown redactor for notes"
+        },
+        {
+            "name": "waybar",
+            "description": "Topbar"
+        },
+        {
+            "name": "dunst",
+            "description": "Notifier"
+        },
+        {
+            "name": "libnotify",
+            "description": ""
+        },
+        {
+            "name": "kitty",
+            "description": "Terminal"
+        },
+        {
+            "name": "rofi",
+            "description": ""
+        },
+        {
+            "name": "networkmanagerapplet",
+            "description": "WIFI manager"
+        },
+        {
+            "name": "catppuccin-cursors.mochaDark",
+            "description": "Cursor"
+        },
+        {
+            "name": "gnome-keyring",
+            "description": "tool for saving passwords in browser"
+        },
+        {
+            "name": "libsecret",
+            "description": ""
+        },
+        {
+            "name": "seahorse",
+            "description": ""
+        },
+        {
+            "name": "nemo",
+            "description": "File Manager"
+        },
+        {
+            "name": "hyprshot",
+            "description": "Print Screen"
+        },
+        {
+            "name": "hyprpaper",
+            "description": "Wallpapers"
+        },
+        {
+            "name": "libreoffice",
+            "description": "Work with office documents"
+        },
+        {
+            "name": "wlogout",
+            "description": "Pretty logout manager"
+        },
+        {
+            "name": "qalculate-gtk",
+            "description": "Calculator"
+        },
+        {
+            "name": "gcc",
+            "description": "C/C++ languages"
+        },
+        {
+            "name": "vlc",
+            "description": "Media player"
+        },
+        {
+            "name": "trash-cli",
+            "description": "Tool for trash cleaning"
+        },
+        {
+            "name": "zip",
+            "description": "Archive tool"
+        },
+        {
+            "name": "unzip",
+            "description": "Unarchive tool"
+        },
+        {
+            "name": "ncdu",
+            "description": "Tool for viewing size of folders"
+        },
+        {
+            "name": "postman",
+            "description": "HTTP client to testing APIs"
+        },
+        {
+            "name": "telegram-desktop",
+            "description": "telegram messanger"
+        }
+    ],
+    "unstable":[
+        {
+            "name": "go_1_26",
+            "description": "Golang 1.26"
+        },
+        {
+            "name": "microsoft-edge",
+            "description": "Browser"
+        },
+        {
+            "name": "opencode",
+            "description": "Tool for AI-agent work"
+        }
+    ],
+    "custom":[
+        {
+            "name": "yandex-music",
+            "description": "Yandex-music"
+        }
+    ],
+    "archived":[
+        {
+            "name": "typst",
+            "description": "Milestone text-compiler instead of Word and Latex"
+        },
+        {
+            "name": "godot",
+            "description": "Game engine"
+        }
+    ]
+}

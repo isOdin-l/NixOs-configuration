@@ -14,37 +14,36 @@ in
     git
     git-lfs
     vscode
-    unstable.go_1_26
     python313
-    unstable.telegram-desktop
+    telegram-desktop
     obsidian
-    unstable.microsoft-edge
-    (waybar.overrideAttrs (oldAttrs: {mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];})) # Line on top
-    dunst # Notifier
+    waybar
+    dunst
     libnotify  
-    kitty # Terminal
+    kitty
     rofi
     networkmanagerapplet
-    catppuccin-cursors.mochaDark # Cursor
-    gnome-keyring # tool for saving passwords in browser
+    catppuccin-cursors.mochaDark
+    gnome-keyring
     libsecret
     seahorse
-    nemo # File Manager
-    hyprshot # Print Screen
-    hyprpaper # Wallpapers
-    libreoffice # Work with office documents
-    wlogout # Pretty logout manager
-    qalculate-gtk # Calculator 
-    gcc # C/C++ languages
-    (pkgs.callPackage ../packages/yandex-music {}) # Yandex-music (custom package)
-    vlc # Media player
+    nemo
+    hyprshot
+    hyprpaper
+    libreoffice
+    wlogout
+    qalculate-gtk 
+    gcc
+    (pkgs.callPackage ../packages/yandex-music {})
+    vlc
     trash-cli
-    unstable.opencode # AI-agent tool
-    #typst # milestone text-compiler instead of Word and Latex
-    godot # Game engine
     zip
     unzip
     ncdu
     postman
+  ] ++[
+    unstable.go_1_26
+    unstable.opencode
+    unstable.microsoft-edge
   ];
 }
