@@ -13,13 +13,12 @@ in
     bluez
     git
     git-lfs
-    vscode
+    # vscode
     python313
-    telegram-desktop
     obsidian
     waybar
     dunst
-    libnotify  
+    libnotify
     kitty
     rofi
     networkmanagerapplet
@@ -32,9 +31,9 @@ in
     hyprpaper
     libreoffice
     wlogout
-    qalculate-gtk 
+    # qalculate-gtk
     gcc
-    (pkgs.callPackage ../packages/yandex-music {})
+    #(pkgs.callPackage ../packages/yandex-music {})
     vlc
     trash-cli
     zip
@@ -42,8 +41,12 @@ in
     ncdu
     postman
   ] ++[
+    unstable.telegram-desktop
     unstable.go_1_26
     unstable.opencode
     unstable.microsoft-edge
+    unstable.zed-editor
+    unstable.bruno
+    unstable.k6
   ];
 }
