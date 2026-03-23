@@ -4,13 +4,14 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./bootloader.nix
+      ./boot.nix
       ./hyprland.nix
       ./fonts.nix
       ./packages.nix
+      ./fixes
     ];
 
-  nixpkgs.config.allowUnfree = true;  
+  nixpkgs.config.allowUnfree = true;
   virtualisation.docker.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -87,4 +88,3 @@
 
   system.stateVersion = "25.05";
 }
-

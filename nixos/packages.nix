@@ -46,7 +46,5 @@ in
     unstable.opencode
     unstable.microsoft-edge
     unstable.zed-editor
-    unstable.bruno
-    unstable.k6
   ];
 }

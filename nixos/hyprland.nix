@@ -1,19 +1,22 @@
 
 { config, lib, pkgs, nixpkgs-unstable, ... }:
 
-{ 
+{
   programs.hyprland.enable = true;
 
   environment.sessionVariables = {
-	  WLR_NO_HARDWARE_CURSORS = "1";
+    XWAYLAND_NO_GLAMOR = "1";
+	  # WLR_NO_HARDWARE_CURSORS = "1";
 	  NIXOS_OZONE_WL = "1";
+	  QT_QPA_PLATFORM = "wayland";
+		GDK_SCALE = "1";
   };
 
   hardware = {
 	  graphics.enable = true;
 	  nvidia.modesetting.enable = true;
   };
-  
+
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
