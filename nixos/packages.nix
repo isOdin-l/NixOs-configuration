@@ -31,7 +31,6 @@ in
     hyprpaper
     libreoffice
     wlogout
-    # qalculate-gtk
     gcc
     #(pkgs.callPackage ../packages/yandex-music {})
     vlc
@@ -40,6 +39,7 @@ in
     unzip
     ncdu
     postman
+    nekoray
   ] ++[
     unstable.telegram-desktop
     unstable.go_1_26

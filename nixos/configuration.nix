@@ -8,7 +8,6 @@
       ./hyprland.nix
       ./fonts.nix
       ./packages.nix
-      ./fixes
     ];
 
   nixpkgs.config.allowUnfree = true;
