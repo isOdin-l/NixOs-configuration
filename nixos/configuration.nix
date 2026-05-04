@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./boot.nix
       ./hyprland.nix
+      #./sway.nix
       ./fonts.nix
       ./packages.nix
     ];
@@ -32,8 +33,19 @@
 
   # KEYBOARD
   services.xserver = {
-    xkb.layout = "us,ru";
-    xkb.options = "grp:alt_shift_toggle";
+    xkb = {
+      layout = "us,ru";
+      options = "grp:alt_shift_toggle,caps:escape";
+    };
+  };
+
+  # Fix shift sticking issue
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      naturalScrolling = true;
+      tapping = true;
+    };
   };
 
   # SDDM
@@ -52,8 +64,7 @@
     jack.enable = true;
   };
 
-  # TOUCHPAD
-  services.libinput.enable = true;
+  programs.zsh.enable = true;
 
   # USER ACCOUNT
   users.users.isodin = {
@@ -63,11 +74,8 @@
     packages = with pkgs; [
       tree
     ];
+    shell = pkgs.zsh;
   };
-
-  # NETWORK
-  networking.useDHCP = false;
-  networking.networkmanager.enable = true;
 
   # BLUETOOTH
   hardware.bluetooth = {
@@ -81,6 +89,15 @@
     };
   };
   services.blueman.enable = true;
+
+  environment.variables = {
+    XCURSOR_THEME = "Catppuccin-Mocha-Dark-Cursors";
+    XCURSOR_SIZE = "24";
+  };
+  # NETWORK
+  networking.firewall.enable = false;
+  networking.useDHCP = false;
+  networking.networkmanager.enable = true;
 
   # VPN SERVICE
   services.zerotierone.enable = true;

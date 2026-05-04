@@ -1,18 +1,19 @@
 {
   "position": "top",
   "layer": "top",
-  "height":32,
-
+  "height": 46,
+  "exclusive": true,
   "modules-left": [
+    //"sway/workspaces"
     "hyprland/workspaces"
   ],
-
-  "modules-center": ["clock"],
-
+  "modules-center": [
+    "clock"
+  ],
   "modules-right": [
     "tray",
     "custom/divider",
-    "hyprland/language",
+    "hyprland/language", //"sway/language"
     "custom/divider",
     "pulseaudio",
     "backlight",
@@ -22,7 +23,6 @@
     "custom/divider",
     "battery"
   ],
-
   "custom/divider": {
     "format": "|",
     "tooltip": false
@@ -37,39 +37,50 @@
     "on-click": "tilix -e btop",
     "interval": 1
   },
- "tray": {
+  "tray": {
     "icon-size": 15,
     "spacing": 10
   },
- "hyprland/workspaces": {
+  //"sway/workspaces"
+  "hyprland/workspaces": {
     "format": "{name}",
-    "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
+    "on-click": "activate"
   },
-  
+  //"sway/language"
   "hyprland/language": {
     "format": "{short}",
     "tooltip": true
   },
-
   "pulseaudio": {
-    "on-click": "pamixer -t",
+    "tooltip": true,
+    "on-click": "easyeffects",
     "format": "{icon} {volume}%",
     "format-muted": "󰖁",
     "format-bluetooth": "{icon}  <b>{volume}%</b>",
     "format-bluetooth-muted": "󰝟 ",
     "format-icons": {
       "headset": "",
-      "default": ["󰕿", "󰖀", "󰕾"]
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
     }
   },
-
   "backlight": {
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-",
     "format": "{icon} {percent}%",
-    "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
+    "format-icons": [
+      "󰃚",
+      "󰃛",
+      "󰃜",
+      "󰃝",
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ]
   },
-
   "battery": {
     "states": {
       "warning": 20,
@@ -78,9 +89,20 @@
     "format": "{icon} {capacity}%",
     "format-charging": "󱈑 {capacity}%",
     "format-plugged": "󱈑 {capacity}%",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
   },
-
   "clock": {
     "format": "{:%A %b %d %H:%M}",
     "tooltip-format": "{:%d} {calendar}"

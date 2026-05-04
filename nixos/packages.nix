@@ -27,8 +27,10 @@ in
     libsecret
     seahorse
     nemo
-    hyprshot
-    hyprpaper
+    grim
+    slurp
+    swaybg
+    sway-contrib.grimshot
     libreoffice
     wlogout
     gcc
@@ -39,8 +41,19 @@ in
     unzip
     ncdu
     postman
-    nekoray
+    htop
+    hyprpaper
+    starship
   ] ++[
+    unstable.protobuf
+    unstable.protoc-gen-go
+    unstable.protoc-gen-go-grpc
+    unstable.k6
+    unstable.gnumake
+    unstable.sqlc
+    unstable.goose
+    unstable.go-swag
+    unstable.golangci-lint
     unstable.telegram-desktop
     unstable.go_1_26
     unstable.opencode
