@@ -13,7 +13,7 @@ in
     bluez
     git
     git-lfs
-    # vscode
+    vscode
     python313
     obsidian
     waybar
@@ -33,7 +33,6 @@ in
     sway-contrib.grimshot
     libreoffice
     wlogout
-    gcc
     #(pkgs.callPackage ../packages/yandex-music {})
     vlc
     trash-cli
@@ -44,7 +43,10 @@ in
     htop
     hyprpaper
     starship
+    hyprshot
+    # google-chrome
   ] ++[
+    unstable.gcc
     unstable.protobuf
     unstable.protoc-gen-go
     unstable.protoc-gen-go-grpc
